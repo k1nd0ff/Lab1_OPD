@@ -34,7 +34,6 @@ async def start(message: Message):
         "Запись в поликлинику\nВведите ФИО пациента:",
         reply_markup=ReplyKeyboardRemove(),
     )
-
 @dp.message(F.text)
 async def dialog(message: Message):
     chat = message.chat.id
