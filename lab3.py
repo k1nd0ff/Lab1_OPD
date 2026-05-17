@@ -6,7 +6,7 @@ app.secret_key = 'very‑secret'        # хранение сессии
 
 user_file = 'data.txt'              # путь к файлу‑базе
 
-def load_users(): # Читает users.txt и возвращает словарь {login: password}
+def load_users(): # Читает data.txt и возвращает словарь {login: password}
     users = {}
     if os.path.exists(user_file):
         with open(user_file, encoding='utf-8') as f:
