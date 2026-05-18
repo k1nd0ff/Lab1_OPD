@@ -4,13 +4,13 @@ app = Flask(__name__)
 app.secret_key = 'dev-secret-key'
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/', methods=['GET', 'POST'])
+def login4():
     return render_template('login4.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
-def register():
+def reg4():
     if request.method == 'POST':
         login = request.form['login']
         password = request.form['password']
@@ -28,3 +28,7 @@ def register():
             return redirect(url_for('login4'))
 
     return render_template('reg4.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
