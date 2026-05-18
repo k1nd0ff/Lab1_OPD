@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-user = Path(__file__).with_name('users.json')
+user = Path(__file__).with_name('user.json')
 
 
 def check_credentials(login: str, password: str) -> bool: # Возвращает True, если логин и пароль совпадают с записью в users.json.
