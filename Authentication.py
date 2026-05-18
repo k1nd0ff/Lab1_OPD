@@ -1,17 +1,18 @@
 import json
 from pathlib import Path
 
-user = Path(__file__).with_name('user.json')
+file = Path(__file__).with_name('user.json')
 
 
-def check_credentials(login: str, password: str) -> bool: # Возвращает True, если логин и пароль совпадают с записью в users.json.
+def check_credentials(login: str, password: str) -> bool: # True, если login и password совпадают с записью в user.json.
     if not isinstance(login, str) or not isinstance(password, str):
         return False
     if not login or not password:
         return False
-    try:
-        with user.open(encoding='utf-8') as f:
-            users = json.load(f)                 # {login: password}
-    except FileNotFoundError:
+
+    if not file.exists():
         return False
+
+    with file.open(encoding='utf-8') as f:
+        users = json.load(f)          # {login: password}
     return users.get(login) == password

@@ -6,7 +6,7 @@ app.secret_key = 'dev-secret-key'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    return render_template('login4.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -25,6 +25,6 @@ def register():
             with open(USER_FILE, 'w', encoding='utf-8') as f:
                 json.dump(users, f, ensure_ascii=False, indent=2)
             flash('Аккаунт создан, теперь можно войти')
-            return redirect(url_for('login'))
+            return redirect(url_for('login4'))
 
-    return render_template('reg.html')
+    return render_template('reg4.html')

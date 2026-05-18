@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Login</title>
+<h2>Вход</h2>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for m in messages %}
+        <li>{{ m }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<form method="post">
+    <label>Логин: <input name="login"></label><br>
+    <label>Пароль: <input name="password" type="password"></label><br>
+    <button type="submit">Войти</button>
+</form>
+
+<p>Нет аккаунта? <a href="{{ url_for('reg4') }}">Создать</a></p>
