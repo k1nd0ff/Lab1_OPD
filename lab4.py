@@ -14,7 +14,7 @@ def register():
     if request.method == 'POST':
         login = request.form['login']
         password = request.form['password']
-        from Authentication import _load_users, USER_FILE
+        from Authentication import _load_users, file
         users = _load_users()
         if login in users:
             flash('Пользователь уже существует')
@@ -22,7 +22,7 @@ def register():
             users[login] = password
             # сохраняем обратно в JSON
             import json
-            with open(USER_FILE, 'w', encoding='utf-8') as f:
+            with open(file, 'w', encoding='utf-8') as f:
                 json.dump(users, f, ensure_ascii=False, indent=2)
             flash('Аккаунт создан, теперь можно войти')
             return redirect(url_for('login4'))
